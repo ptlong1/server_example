@@ -3,6 +3,7 @@ var https   = require("https");     // https server core module
 var fs      = require("fs");        // file system core module
 var express = require("express");   // web framework external module
 var io      = require("socket.io"); // web socket external module
+var path = require('path');
 
 // This sample is using the easyrtc from parent folder.
 // To use this server_example folder only without parent folder:
@@ -14,6 +15,15 @@ var easyrtc = require("open-easyrtc"); // EasyRTC internal module
 // Setup and configure Express http server. Expect a subfolder called "static" to be the web root.
 var httpApp = express();
 httpApp.use(express.static(__dirname + "/static/"));
+httpApp.use(express.static(path.join(__dirname,'views/audio/js')));
+
+httpApp.get('/test', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views/audio/demo_audio_rooms.html'));
+});
+httpApp.get('/test1', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views/audio/demo_audio_webgl.html'));
+});
+
 
 // Start Express https server on port 8443
 var webServer = https.createServer({
