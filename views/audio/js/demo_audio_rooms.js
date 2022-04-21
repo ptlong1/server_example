@@ -6,9 +6,10 @@ function connect() {
     easyrtc.enableVideoReceive(false);
     easyrtc.setRoomOccupantListener(convertListToButtonsAndCall);
 	joinRoom("MainRoom");
+	currentRoomName = "MainRoom";
     easyrtc.initMediaSource(
         function(){        // success callback
-            easyrtc.connect("easyrtc.audioOnly", loginSuccess, loginFailure);
+            easyrtc.connect("easyrtc.audioOnly", loginSuccess, loginFailure);	
 			// connectRoom("MainRoom");
         },
         function(errorCode, errmesg){
@@ -143,7 +144,7 @@ function loginSuccess(easyrtcid) {
     // enable("disconnectButton");
     enable('otherClients');
     selfEasyrtcid = easyrtcid;
-    document.getElementById("iam").innerHTML = "I am " + easyrtcid;
+    document.getElementById("iam").innerHTML = "I am " + easyrtcid;			
 }
 
 
