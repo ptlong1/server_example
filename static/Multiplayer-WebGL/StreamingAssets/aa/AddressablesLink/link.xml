@@ -18,6 +18,7 @@
     <type fullname="UnityEngine.Shader" preserve="all" />
     <type fullname="UnityEngine.Object" preserve="all" />
     <type fullname="UnityEngine.SkinnedMeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.Sprite" preserve="all" />
     <type fullname="UnityEngine.RectTransform" preserve="all" />
     <type fullname="UnityEngine.Camera" preserve="all" />
     <type fullname="UnityEngine.Cubemap" preserve="all" />
@@ -25,30 +26,33 @@
     <type fullname="UnityEngine.LightmapSettings" preserve="all" />
     <type fullname="UnityEngine.MeshRenderer" preserve="all" />
     <type fullname="UnityEngine.MeshFilter" preserve="all" />
+    <type fullname="UnityEngine.RenderTexture" preserve="all" />
     <type fullname="UnityEngine.Light" preserve="all" />
-    <type fullname="UnityEngine.Sprite" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.AnimationClip" preserve="all" />
     <type fullname="UnityEngine.Avatar" preserve="all" />
     <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
     <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.Animation" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
+    <type fullname="UnityEngine.UI.Image" preserve="all" />
+    <type fullname="UnityEngine.UI.Button" preserve="all" />
     <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
     <type fullname="UnityEngine.EventSystems.EventSystem" preserve="all" />
     <type fullname="UnityEngine.UI.RawImage" preserve="all" />
-    <type fullname="UnityEngine.UI.Image" preserve="all" />
     <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
-    <type fullname="UnityEngine.UI.Button" preserve="all" />
-    <type fullname="UnityEngine.UI.ContentSizeFitter" preserve="all" />
-    <type fullname="UnityEngine.UI.Mask" preserve="all" />
     <type fullname="UnityEngine.UI.RectMask2D" preserve="all" />
     <type fullname="UnityEngine.UI.HorizontalLayoutGroup" preserve="all" />
-    <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
+    <type fullname="UnityEngine.UI.Outline" preserve="all" />
     <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.AspectRatioFitter" preserve="all" />
     <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
+    <type fullname="UnityEngine.UI.ContentSizeFitter" preserve="all" />
+    <type fullname="UnityEngine.UI.Mask" preserve="all" />
+    <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
   </assembly>
   <assembly fullname="Unity.InputSystem, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.InputSystem.PlayerInput" preserve="all" />
@@ -62,13 +66,17 @@
     <type fullname="RuntimeAvatarLoader" preserve="all" />
     <type fullname="AlwaysLookAtCam" preserve="all" />
     <type fullname="AgentListener" preserve="all" />
-    <type fullname="ClientStartup" preserve="all" />
+    <type fullname="LoginWindow" preserve="all" />
     <type fullname="UIManager" preserve="all" />
     <type fullname="Assets._Project._Scripts.AdditiveLevels.AdditiveLevelMultiplayerNetworkManager" preserve="all" />
     <type fullname="WebGLCaptureAllKeyboardInputFalse" preserve="all" />
+    <type fullname="LoginAPI" preserve="all" />
+    <type fullname="GetMultiTexture" preserve="all" />
     <type fullname="Assets._Project._Scripts.Chat.ChatUI" preserve="all" />
     <type fullname="Assets._Project._Scripts.Chat.ChatController" preserve="all" />
+    <type fullname="GetSingleTexture" preserve="all" />
     <type fullname="Assets._Project._Scripts.AdditiveLevels.PhysicsSimulator" preserve="all" />
+    <type fullname="Screen" preserve="all" />
     <type fullname="Assets._Project._Scripts.AdditiveLevels.Portal" preserve="all" />
     <type fullname="PTL.UI.ModelWindow" preserve="all" />
   </assembly>
@@ -96,6 +104,7 @@
   </assembly>
   <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.CharacterController" preserve="all" />
+    <type fullname="UnityEngine.Rigidbody" preserve="all" />
     <type fullname="UnityEngine.MeshCollider" preserve="all" />
     <type fullname="UnityEngine.BoxCollider" preserve="all" />
   </assembly>
