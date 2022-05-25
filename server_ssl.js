@@ -31,6 +31,10 @@ httpApp.get('/test1', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/audio/demo_audio_webgl.html'));
 });
 
+httpApp.get('/test1', (req, res) => {
+  res.sendFile(path.join(__dirname, 'static/demo_audio_webgl.html'));
+});
+
 // Start Express https server on port 8443
 const webServer = https.createServer(
   {
