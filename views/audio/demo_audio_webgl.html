@@ -61,7 +61,8 @@
       border: red solid 2px;
       background-color: pink;
       padding: 15px;
-    }
+     }
+
   </style>
   <!--show-->
 </head>
@@ -112,7 +113,7 @@
       <div id="unity-mobile-warning">
         WebGL builds are not supported on mobile devices.
       </div>
-      <div id="unity-footer">
+      <div id="unity-footer" hidden>
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Demo Conference</div>
@@ -159,8 +160,8 @@
         mobileWarning.style.display = "none";
       }, 5000);
     } else {
-      canvas.style.width = "960px";
-      canvas.style.height = "600px";
+      canvas.style.width = "1080px";
+      canvas.style.height = "640px";
     }
     loadingBar.style.display = "block";
 
