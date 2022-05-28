@@ -33,77 +33,48 @@
       display: none;
     }
 
-    #connectControls {
-      float: left;
-      width: 250px;
-      text-align: center;
-      border: 2px solid black;
+    #unity-container {
+      margin: auto;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
-
-    #otherClients {
-      height: 200px;
-      overflow-y: scroll;
-    }
-
-    #callerAudio {
-      /* display:none; */
-      height: 10em;
-      width: 10em;
-      margin-left: 10px;
-    }
-
-    #acceptCallBox {
-      display: none;
-      z-index: 2;
-      position: absolute;
-      top: 100px;
-      left: 400px;
-      border: red solid 2px;
-      background-color: pink;
-      padding: 15px;
-     }
-
   </style>
   <!--show-->
 </head>
 
 <body onload="connect()">
-  <div id="container">
-    <!--hide-->
-    <div id="main">
-      <!-- Main Content -->
-      <h2>Demo Conference</h2>
-
-      <!--show-->
-      <div id="demoContainer">
-        <div id="connectControls">
-          <button id="connectButton" onclick="connect()">Connect</button>
-          <!-- <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button> -->
-          <div id="iam">Not yet connected...</div>
-          <div id="roomName">Room name: null</div>
-          <br />
-          <input type="text" id="roomNameInput">
-          <button id="roomConnectButton" onclick="connectInputRoom()">Connect</button>
-          <br />
-          <strong>Connected users:</strong>
-          <div id="otherClients"></div>
-        </div>
-
-        <!-- Note... this demo should be updated to remove video references -->
-        <div id="videos">
-          <video id="callerAudio" autoplay="autoplay" playsinline="playsinline"></video>
-          <div id="acceptCallBox">
-            <!-- Should be initially hidden using CSS -->
-            <div id="acceptCallLabel"></div>
-            <button id="callAcceptButton">Accept</button> <button id="callRejectButton">Reject</button>
-          </div>
-        </div>
-      </div>
-      <!-- End Main Content -->
+  <div id="demoContainer">
+    <div id="connectControls">
+      <button id="connectButton" onclick="connect()">Connect</button>
+      <!-- <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button> -->
+      <div id="iam">Not yet connected...</div>
+      <div id="roomName">Room name: null</div>
+      <br />
+      <input type="text" id="roomNameInput">
+      <button id="roomConnectButton" onclick="connectInputRoom()">Connect</button>
+      <br />
+      <strong>Connected users:</strong>
+      <div id="otherClients"></div>
     </div>
+
+    <!-- Note... this demo should be updated to remove video references -->
+    <div id="videos">
+      <video id="callerAudio" autoplay="autoplay" playsinline="playsinline"></video>
+      <div id="acceptCallBox">
+        <!-- Should be initially hidden using CSS -->
+        <div id="acceptCallLabel"></div>
+        <button id="callAcceptButton">Accept</button> <button id="callRejectButton">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="container">
     <!-- WebGL -->
     <div id="unity-container">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="1"></canvas>
+      <canvas id="unity-canvas" tabindex="1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -160,8 +131,8 @@
         mobileWarning.style.display = "none";
       }, 5000);
     } else {
-      canvas.style.width = "1080px";
-      canvas.style.height = "640px";
+      canvas.style.width = "100%";
+      canvas.style.height = "100%";
     }
     loadingBar.style.display = "block";
 
