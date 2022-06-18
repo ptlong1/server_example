@@ -25,6 +25,7 @@ function connectInputRoom()
 }
 function connectRoom(newRoomName)
 {
+	newRoomName = newRoomName.replace(/\s/g, '');
 	console.log("New Room Name: " +newRoomName);
 	leaveRoom(currentRoomName);
 	currentRoomName = "";
