@@ -1,6 +1,9 @@
 var selfEasyrtcid = '';
 var currentRoomName = 'default';
 var isJoinRoom = false;
+
+var isEnableMicrophone = false;
+
 function connect() {
   console.log('Initializing.');
   easyrtc.enableVideo(false);
@@ -148,6 +151,9 @@ function loginSuccess(easyrtcid) {
   enable('otherClients');
   selfEasyrtcid = easyrtcid;
   document.getElementById('iam').innerHTML = 'I am ' + easyrtcid;
+  // default: turn on microphone
+  isEnableMicrophone = false;
+  easyrtc.enableMicrophone(isEnableMicrophone);
 }
 
 function loginFailure(errorCode, message) {
@@ -187,6 +193,10 @@ easyrtc.setOnStreamClosed(function (easyrtcid) {
 });
 
 document.addEventListener('keyup', (e) => {
+  if (e.key === 'g') {
+    isEnableMicrophone = false;
+    easyrtc.enableMicrophone(isEnableMicrophone);
+  }
   if (e.key === 'v' && e.ctrlKey) {
     if (isJoinRoom) {
       leaveRoom(currentRoomName);
@@ -195,3 +205,14 @@ document.addEventListener('keyup', (e) => {
     }
   }
 });
+
+document.addEventListener('keypress', (e) => {
+  if (e.key === 'g') {
+    isEnableMicrophone = true;
+    easyrtc.enableMicrophone(isEnableMicrophone);
+  }
+});
+
+function isSpeaking() {
+  return isEnableMicrophone;
+}
