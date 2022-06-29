@@ -111,6 +111,7 @@ function convertListToButtons(roomName, occupants, isPrimary) {
 }
 
 function performCall(otherEasyrtcid) {
+  console.log('here');
   // easyrtc.hangupAll();
   var acceptedCB = function (accepted, caller) {
     if (!accepted) {
