@@ -33,8 +33,10 @@ function connectRoom(newRoomName) {
 }
 
 function joinRoom(roomName) {
+  console.log('Joining room...', roomName);
   isJoinRoom = true;
   easyrtc.joinRoom(roomName, null, joinRoomSuccessCB, joinRoomFailureCB);
+  console.log('Joined room: ', roomName);
 }
 
 function leaveRoom(roomName) {
