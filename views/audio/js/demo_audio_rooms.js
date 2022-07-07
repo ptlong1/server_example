@@ -213,6 +213,6 @@ document.addEventListener('keypress', (e) => {
   }
 });
 
-function isSpeaking() {
+function IsSpeaking() {
   return isEnableMicrophone;
 }
