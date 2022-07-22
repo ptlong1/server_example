@@ -19,8 +19,7 @@ process.title = 'node-easyrtc';
 var app = express();
 app.use(serveStatic('static', { index: ['index.html'] }));
 // app.use(express.static('Multiplayer-WebGL'));
-app.use(express.static(path.join(__dirname,'views/audio/js')));
-
+app.use(express.static(path.join(__dirname, 'views/audio/js')));
 
 app.get('/test', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/audio/demo_audio_rooms.html'));

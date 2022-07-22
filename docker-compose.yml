@@ -1,25 +1,23 @@
-version: "3.1"
+version: '3.1'
 
 services:
   easyrtc-server:
     image: easyrtc-server:${EASYRTC_VERSION:-latest}
     container_name: easyrtc-server
+    command: server_ssl
     build:
       context: .
       args:
-        EASYRTC_BRANCH: "master"
-    command: server_ssl
+        EASYRTC_BRANCH: master
     volumes:
       - ./certs:/usr/src/app/certs:ro
+      - ./static:/static:ro
     networks:
       - frontend
     ports:
-      - "8080:8080"
+      - 8443:8443
     tty: true
     stdin_open: true
-    volumes:
-      - ./static:/static:ro
 
 networks:
   frontend:
-  backend:
