@@ -15,6 +15,7 @@
     "docker-compose:stop": "docker-compose -f docker-compose.yml down"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "open-easyrtc": "^2.0.13",
     "serve-static": "^1.14.1",

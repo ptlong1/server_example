@@ -1,21 +1,14 @@
-// Load required modules
+require('dotenv').config();
 var http = require('http'); // http server core module
 var path = require('path');
 var express = require('express'); // web framework external module
 var serveStatic = require('serve-static'); // serve static files
 var socketIo = require('socket.io'); // web socket external module
-
-// This sample is using the easyrtc from parent folder.
-// To use this server_example folder only without parent folder:
-// 1. you need to replace this "require("../");" by "require("open-easyrtc");"
-// 2. install easyrtc (npm i open-easyrtc --save) in server_example/package.json
-
 var easyrtc = require('open-easyrtc'); // EasyRTC internal module
 
 // Set process name
 process.title = 'node-easyrtc';
 
-// Setup and configure Express http server. Expect a subfolder called "static" to be the web root.
 var app = express();
 app.use(serveStatic('static', { index: ['index.html'] }));
 // app.use(express.static('Multiplayer-WebGL'));
@@ -28,30 +21,12 @@ app.get('/test1', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/audio/demo_audio_webgl.html'));
 });
 
-// app.set('view engine', 'html');
-// require('./middlewares/routes.mdw')(app);
-// Start Express http server on port 8080
 var webServer = http.createServer(app);
 
-// Start Socket.io so it attaches itself to Express server
 var socketServer = socketIo.listen(webServer, { 'log level': 1 });
-
-// Cross-domain workaround presented below:
-/*
-socketServer.origins(function(origin, callback) {
-    if (origin && ![
-        'http://localhost:8080',
-        '*'
-    ].includes(origin)) {
-        return callback('origin not allowed', false);
-    }
-    callback(null, true);
-});
-*/
 
 easyrtc.setOption('logLevel', 'debug');
 
-// Overriding the default easyrtcAuth listener, only so we can directly access its callback
 easyrtc.events.on(
   'easyrtcAuth',
   function (socket, easyrtcid, msg, socketCallback, callback) {
@@ -81,7 +56,6 @@ easyrtc.events.on(
   },
 );
 
-// To test, lets print the credential to the console for every room join!
 easyrtc.events.on(
   'roomJoin',
   function (connectionObj, roomName, roomParameter, callback) {
@@ -98,7 +72,6 @@ easyrtc.events.on(
   },
 );
 
-// Start EasyRTC server
 var rtc = easyrtc.listen(app, socketServer, null, function (err, rtcRef) {
   console.log('Initiated');
 
@@ -118,8 +91,8 @@ var rtc = easyrtc.listen(app, socketServer, null, function (err, rtcRef) {
   );
 });
 
-// Listen on port 8080
-const PORT = 3456;
+// Listen on port 8443
+const PORT = process.env.PORT || 8443;
 webServer.listen(PORT, function () {
   console.log(`listening on http://localhost:${PORT}`);
 });
