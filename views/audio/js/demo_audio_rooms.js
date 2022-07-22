@@ -194,10 +194,12 @@ easyrtc.setOnStreamClosed(function (easyrtcid) {
 
 document.addEventListener('keyup', (e) => {
   if (e.key === 'g') {
+    isEnableMicrophone = true;
+    easyrtc.enableMicrophone(isEnableMicrophone);
+  } else if (e.key === 'm') {
     isEnableMicrophone = false;
     easyrtc.enableMicrophone(isEnableMicrophone);
-  }
-  if (e.key === 'v' && e.ctrlKey) {
+  } else if (e.key === 'v' && e.ctrlKey) {
     if (isJoinRoom) {
       leaveRoom(currentRoomName);
     } else {
@@ -206,12 +208,12 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
-document.addEventListener('keypress', (e) => {
-  if (e.key === 'g') {
-    isEnableMicrophone = true;
-    easyrtc.enableMicrophone(isEnableMicrophone);
-  }
-});
+// document.addEventListener('keypress', (e) => {
+//   if (e.key === 'g') {
+//     isEnableMicrophone = true;
+//     easyrtc.enableMicrophone(isEnableMicrophone);
+//   }
+// });
 
 function IsSpeaking() {
   return isEnableMicrophone;
